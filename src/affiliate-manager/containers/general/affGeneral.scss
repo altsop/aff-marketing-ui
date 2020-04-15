@@ -1,0 +1,17 @@
+@import "src/affiliate-manager/assets/scss/variables";
+
+html, body {
+  height: 100%;
+  background: $background-color;
+  font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.aff-sidebar-area {
+  z-index: 2;
+  position: fixed;
+  top: $header-height;
+  bottom: 0;
+  max-width: $sidebar-width;
+  min-width: $sidebar-width;
+}

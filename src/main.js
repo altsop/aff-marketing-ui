@@ -26,14 +26,23 @@ export function configure(aurelia) {
     .developmentLogging();
 
   aurelia.use
+    .standardConfiguration()
+    .developmentLogging()
+    .plugin(PLATFORM.moduleName('au-table'));
+
+  aurelia.use
     .globalResources([
       PLATFORM.moduleName('commons/converters/status-badge'),
       PLATFORM.moduleName('commons/converters/status')
     ]);
 
+  aurelia.use
+    .standardConfiguration()
+    .developmentLogging()
+    .plugin(PLATFORM.moduleName('aurelia-dialog'));
+
   if (environment.testing) {
     aurelia.use.plugin(PLATFORM.moduleName('aurelia-testing'));
   }
-
   aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
 }

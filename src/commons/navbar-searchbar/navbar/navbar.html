@@ -44,6 +44,24 @@
         >
           Log in
         </a>
+        <a
+          class="router-link nav-link bg-purple navbar-right"
+          click.delegate="navigateTo('#/affiliate-manager?view=admin')"
+        >
+          Admin
+        </a>
+        <a
+          class="router-link nav-link bg-purple navbar-right"
+          click.delegate="navigateTo('#/affiliate-manager?view=member')"
+        >
+          Member
+        </a>
+        <a
+          class="router-link nav-link bg-purple navbar-right"
+          click.delegate="navigateTo('#/affiliate-manager?view=pending')"
+        >
+          Pending
+        </a>
       </li>
       <li
         if.bind="state.userLoginId !== 'null'"
@@ -58,5 +76,4 @@
       </li>
     </div>
   </nav>
-
 </template>

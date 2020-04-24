@@ -3,6 +3,7 @@
   <require from="../../general/filter/filter"></require>
   <require from="../../general/icons/delete/deleteIcon"></require>
   <require from="../../general/icons/icon"></require>
+  <require from="../../general/select/selectValue"></require>
 
   <div class="row flex-column mx-3 text-center mt-5">
     <div class="col-md-9 mx-auto">
@@ -11,29 +12,14 @@
       </page-title>
     </div>
     <div class="col-md-9 mx-auto my-3">
-      <div class="input-group flex-column mb-3">
-        <label for="product-categories-select" class="ml-2 text-left">
-          <small>Choose a category and generate a new affiliate code</small>
-        </label>
-        <div class="d-flex justify-content-start">
-          <select
-            name="product-categories"
-            id="product-categories-select"
-            class="custom-select aff-all-affiliates__select--filter col-3"
-            value.bind="selectedCategory">
-            <option model.bind=null>Choose</option>
-            <option class="option" repeat.for="category of productCategories"
-                    model.bind="category['key']">
-              ${category['value']}
-            </option>
-          </select>
-          <button
-            disabled.bind="!selectedCategory"
-            click.trigger="generateAffiliateCode()"
-            class="btn aff-system__button--main"
-            type="button">Generate New</button>
-        </div>
-      </div>
+      <select-value
+        class="pl-0 col-3"
+        selected.two-way="selectedCategory"
+        options.one-way="productCategories"
+        id.one-way="'generateCodeId'"
+        label-text="Generate code for a chosen category"
+        callback.call="generateAffiliateCode($event)">
+      </select-value>
       <filter
         values-to-filter.one-way="affiliateCodes"
         options.one-way="affiliateCodeOptions"

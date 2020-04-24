@@ -2,7 +2,6 @@
 
 body, html {
   height: 100%;
-  overflow-y: hidden;
 }
 
 *:focus {
@@ -109,6 +108,14 @@ body, html {
   visibility: hidden;
   transform: scaleY(0);
   opacity: 0;
+}
+
+.error__login {
+  border: solid 2px red;
+
+  &:focus {
+    border-bottom: solid 2px red;
+  }
 }
 
 @media only screen and (max-width: 450px) {

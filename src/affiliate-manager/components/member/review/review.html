@@ -3,6 +3,7 @@
   <require from="../../general/filter/filter"></require>
   <require from="../../general/icons/eye/eyeIcon"></require>
   <require from="../../general/icons/icon"></require>
+  <require from="../../general/select/selectValue"></require>
 
   <div class="row flex-column mx-3 text-center mt-5">
     <div class="col-md-9 mx-auto">
@@ -12,16 +13,16 @@
       >
       </page-title>
     </div>
-    <div class="col-md-9 mx-auto my-3">
-      <filter
-        options.one-way="affStatistics"
-        id.one-way="`aff-statistics`"
-        prepend-text.one-way="'Statistics over'"
-        selected.one-way="null"
-      >
-      </filter>
+    <div class="col-md-9 mx-auto my-4">
+      <select-value
+        class="pl-0 col-md-9 mx-auto my-3"
+        selected.two-way="selectedPeriod"
+        id.one-way="'reviewSelectId'"
+        label-text="Show review for a chosen period"
+        options.one-way="affStatistics">
+      </select-value>
     </div>
-    <div class="col-md-9 mt-5 mx-auto table-responsive-md">
+    <div class="col-md-9 mt-2 mx-auto table-responsive-md">
       <h6>Purchases related to my affiliate codes</h6>
       <hr class="mt-n1">
       <table class="table table-striped table-dark table-bordered table-hover">
@@ -35,7 +36,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="aff-member-table__row" repeat.for="product of products">
+        <tr class="aff-member-table__row" repeat.for="product of products.slice(0, 3)">
           <td class="align-middle">
             <p>${product['id']}</p>
           </td>
@@ -59,7 +60,8 @@
         </tr>
         </tbody>
       </table>
-      <button class="mx-auto w-75 btn aff-system__button--main">Show More</button>
+      <button click.trigger="showAll(products)" class="mx-auto w-75 btn aff-system__button--main">Show More
+      </button>
     </div>
     <div class="col-md-9 mx-auto mt-5 table-responsive-md">
       <h6>Multi-level affiliate program</h6>
@@ -113,22 +115,28 @@
         <tr>
           <th
             class="align-middle"
-            scope="col">Code</th>
+            scope="col">Code
+          </th>
           <th
             class="align-middle"
-            scope="col">Commission Total</th>
+            scope="col">Commission Total
+          </th>
           <th
             class="align-middle"
-            scope="col">Active Since</th>
+            scope="col">Active Since
+          </th>
           <th
             class="align-middle"
-            scope="col">Used (times)</th>
+            scope="col">Used (times)
+          </th>
           <th
             class="align-middle"
-            scope="col">Category</th>
+            scope="col">Category
+          </th>
           <th
             class="align-middle"
-            scope="col">Invited</th>
+            scope="col">Invited
+          </th>
         </tr>
         </thead>
         <tbody>

@@ -1,13 +1,55 @@
 import "./login.scss"
+import { inject } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
+import { ValidationControllerFactory, ValidationRules } from "aurelia-validation";
+import { LoginService } from "./loginService";
 
+@inject(Router, ValidationControllerFactory, LoginService)
 export class Login {
 
-  constructor() {
-    this.forgotPassword = false;
+  username = null;
+  password = null;
+  recovery = '';
+  showFeedback = false;
+  forgotPassword;
+  errors;
+
+  constructor(router, controllerFactory, loginService) {
+    this.router = router;
+    this.loginService = loginService;
+    this.controller = controllerFactory.createForCurrentScope();
+    ValidationRules
+      .ensure('username').required()
+      .ensure('password').required()
+      .on(this);
+    ValidationRules
+      .ensure('recovery')
+      .email()
+      .required()
   }
 
   setForgotPassword(value) {
     this.forgotPassword = value;
+  }
+
+  navigateTO(path) {
+    this.router.navigate(path)
+  }
+
+  async login() {
+    await this.controller.validate();
+    if (this.controller.errors.length === 0) {
+      const isSuccessful = await this.loginService.loginAttempt(this.username, this.password);
+      if (isSuccessful) {
+        this.router.navigate("/");
+        return
+      }
+    }
+    this.errors = true;
+  }
+
+  async sendForgotPasswordRequest() {
+    this.showFeedback = true;
   }
 
 }

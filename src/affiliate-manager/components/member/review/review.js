@@ -1,10 +1,17 @@
+import {bindable} from "aurelia-templating";
+import {inject} from "aurelia-dependency-injection";
+
+import {ReviewAll} from "./review-all-modal/reviewAll";
+import {DialogService} from "aurelia-dialog";
+
+@inject(DialogService)
 export class Review {
 
   counter = 1;
 
-  incrementCounter() {
-    return this.counter++;
-  }
+  @bindable
+  selectedPeriod;
+
 
   affStatistics = [
     {
@@ -43,6 +50,356 @@ export class Review {
       "code": "4554545",
       "code-owner": "tik@gmail.com",
     },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    }, {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    }, {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+    {
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },{
+      "id": "234423",
+      "name": "MX Master 2s",
+      "commission": "3.05$",
+      "code": "4554545",
+      "code-owner": "tik@gmail.com",
+    },
+
+
+
   ];
 
   partners = [
@@ -89,5 +446,22 @@ export class Review {
       "category": "food",
       "invited": "0",
     },
-  ]
+  ];
+
+
+  constructor(dialogService) {
+    this.dialogService = dialogService;
+  }
+
+  incrementCounter() {
+    return this.counter++;
+  }
+
+  showAll(data) {
+    this.dialogService.open({
+      viewModel: ReviewAll
+      , model: data
+    })
+  }
+
 }

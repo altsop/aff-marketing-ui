@@ -57,7 +57,7 @@ export class MyAffiliates {
     this.myAffiliatePartners.push({
       "dateTimeCreated": '03.04.2020',
       "firstName": "Alex",
-      "lastName": "Groom",
+      "lastName": "Kroom",
       "email": 'ag@gmail.com',
       "status": 'Active'
     });

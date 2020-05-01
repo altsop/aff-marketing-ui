@@ -17,16 +17,6 @@ export class allAffiliates {
     this.affManagerService = affManagerService;
     this.allAffiliatesOptions = this.getAffiliatesOptions();
     this.fetchAffiliatePartners();
-    this.allAffiliatePartners.push(
-      {
-        'firstName': 'Nikita',
-        'lastName': 'Ojamae',
-        'dateTimeCreated': moment(1584223200000).format('MM-D-YYYY'),
-        'email': '122@gmail.com',
-        'status': 'Active'
-      }
-    );
-    this.filteredValues = this.allAffiliatePartners;
   }
 
   async fetchAffiliatePartners() {

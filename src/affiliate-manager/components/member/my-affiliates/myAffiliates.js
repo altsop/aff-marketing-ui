@@ -1,9 +1,9 @@
-import "../member-components.scss"
-import moment from "moment";
-import { DialogService } from "aurelia-dialog";
-import { SingleAffiliate } from "./aff-detailed-view/singleAffiliate"
-import { inject } from "aurelia-dependency-injection";
-import { AffManagerService } from "../../../service/affManagerService";
+import '../member-components.scss';
+import moment from 'moment';
+import {DialogService} from 'aurelia-dialog';
+import {SingleAffiliate} from '../../general/af-detailed-modal/singleAffiliate';
+import {inject} from 'aurelia-dependency-injection';
+import {AffManagerService} from '../../../service/affManagerService';
 
 @inject(DialogService, AffManagerService)
 export class MyAffiliates {
@@ -21,25 +21,25 @@ export class MyAffiliates {
   getMyAffiliateOptions() {
     return [
       {
-        "key": 'firstName',
-        "value": 'First name',
+        'key': 'firstName',
+        'value': 'First name'
       },
       {
-        "key": 'lastName',
-        "value": 'Last name',
+        'key': 'lastName',
+        'value': 'Last name'
       },
       {
-        "key": 'email',
-        "value": 'Email',
+        'key': 'email',
+        'value': 'Email'
       },
       {
-        "key": 'dateTimeCreated',
-        "value": 'Date',
+        'key': 'dateTimeCreated',
+        'value': 'Date'
       },
       {
-        "key": 'status',
-        "value": 'Status',
-      },
+        'key': 'status',
+        'value': 'Status'
+      }
     ];
   }
 
@@ -55,11 +55,11 @@ export class MyAffiliates {
     //   )
     // }
     this.myAffiliatePartners.push({
-      "dateTimeCreated": '03.04.2020',
-      "firstName": "Alex",
-      "lastName": "Kroom",
-      "email": 'ag@gmail.com',
-      "status": 'Active'
+      'dateTimeCreated': '03.04.2020',
+      'firstName': 'Alex',
+      'lastName': 'Kroom',
+      'email': 'ag@gmail.com',
+      'status': 'Active'
     });
     this.filteredAffiliatePartners = this.myAffiliatePartners;
   }
@@ -69,22 +69,23 @@ export class MyAffiliates {
   }
 
   parsePartner(partner) {
-    const parsedDate = new Date(partner["date"]);
+    const parsedDate = new Date(partner['date']);
     return {
-      "dateTimeCreated": moment(parsedDate).format('MM-D-YYYY'),
-      "firstName": partner['firstName'],
-      "lastName": partner['lastName'],
-      "email": partner['email']? partner['email']: 'missing',
-      "status": partner['status']
-    }
+      'dateTimeCreated': moment(parsedDate).format('MM-D-YYYY'),
+      'firstName': partner['firstName'],
+      'lastName': partner['lastName'],
+      'email': partner['email'] ? partner['email'] : 'missing',
+      'status': partner['status']
+    };
   }
 
 
   detailedView(partner) {
+    const isAdmin = false;
     this.dialogService.open({
       viewModel: SingleAffiliate
-      , model: partner
-    })
+      , model: {partner, isAdmin}
+    });
   }
 }
 

@@ -63,8 +63,9 @@
           <td class="align-middle"><a href="mailto:${user['email']}">${user['email']}</a></td>
           <td class="align-middle">${user['status']}</td>
           <td class="aff-table__action-icon">
-            <icon>
-              <manage-icon click.trigger="manageAffiliate(user)"></manage-icon>
+            <icon
+              click.trigger="manageAffiliate(user)">
+              <manage-icon></manage-icon>
             </icon>
           </td>
         </tr>

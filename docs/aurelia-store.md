@@ -1,9 +1,7 @@
 # `Aurelia Store`
 
-Official documentation is not as good, as it could be, but it is better that nothing:
+Official documentation
 https://aurelia.io/docs/plugins/store#introduction
-
-All the configuration is done by affiliate-marketing team, so you can just start using.
 
 ### Background:
 We decided to add a global store in order to have a central place to store data that could be useful (or even mandatory) for more than couple components. As a result, you will never fall into the hell of props propagation (parent-children-...-children)
@@ -26,13 +24,16 @@ For example, we store userLoginId that is fetched from backend in case of succes
     }
     ```
 
-2. add bind  to the same component
+2. subscribe to state and add life cycle hook (unsubscribe)
     ```
-      bind() {
+    constructor(store) {
         this.subscription = this.store.state.subscribe(
           (state) => this.state = state
         );
-      }
+    }
+    unbind() {
+      this.subscription.unsubscribe();
+    }
     ```
 
 3. use this.state
@@ -58,11 +59,75 @@ For example, we store userLoginId that is fetched from backend in case of succes
         this.store.registerAction('setUserLoginId', setUserLoginId);
       }
 
-    now you can make mutate userLoginId via setUserLoginId mutation
+    now you can mutate userLoginId via setUserLoginId mutation
 
-    this.store.dispatch('setUserLoginId', responseData['userLoginId']);
+    this.store.dispatch('setUserLoginId', 'new value');
 
     ```
+
+### Unable to sync changes :(
+
+I have encountered difficulties while trying to configure HttpClient (be careful while configuring singleton)
+I have the following config:
+```
+ constructor(httpClient, store) {
+    this.httpClient = httpClient;
+    this.store = store;
+    this.store.registerAction('setPartyId', setPartyId);
+    this.subscription = this.store.state.subscribe(
+      (state) => {
+        this.state = state;
+      }
+    );
+    this.httpClient.configure(config => {
+        config
+          .withBaseUrl('api/')
+          .withDefaults({
+              headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${this.state.jwtToken}`
+              }
+            }
+          )
+      }
+    );
+  }
+```
+As you can see, I need to configure HttpClient in constructor, but jwt initial value is null. Even after log in (jwt is populated) it remains null and only page refresh could help.
+
+ Solution would be to reconfigure httpClient every time state changes
+ (we need to listen state changes explicitly):
+ ```aidl
+  @observable token;
+
+  constructor(store) {
+         this.store = store;
+
+         NB! DO NOT FORGET TO SUBSCRIBE
+         this.subscription = this.store.state.subscribe(
+           (state) => {
+             this.token = state.jwtToken;
+           }
+  }
+
+  tokenChanged(newToken) {
+    this.httpClient.configure(config => {
+        config
+          .withBaseUrl('api/')
+          .withDefaults({
+              headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${newToken}`
+              }
+            }
+          )
+      }
+    );
+  }
+```
+
+Function 'tokenChanged' works out of box, you do not need additional configuration. In other words, every time jwt changes in state, we update local jwt as well
+
 
 ### Redux devtools (strongly advised):
 

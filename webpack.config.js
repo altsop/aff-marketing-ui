@@ -9,6 +9,7 @@ const {ProvidePlugin} = require('webpack');
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || [];
 const when = (condition, config, negativeConfig) =>
@@ -32,7 +33,9 @@ module.exports = ({production} = {}, {extractCss, analyze, tests, hmr, port, hos
     modules: [srcDir, 'node_modules'],
     // Enforce single aurelia-binding, to avoid v1/v2 duplication due to
     // out-of-date dependencies on 3rd party aurelia plugins
-    alias: {'aurelia-binding': path.resolve(__dirname, 'node_modules/aurelia-binding')}
+    alias: {
+      'aurelia-binding': path.resolve(__dirname, 'node_modules/aurelia-binding'),
+    }
   },
   entry: {
     app: ['aurelia-bootstrapper']
@@ -55,7 +58,7 @@ module.exports = ({production} = {}, {extractCss, analyze, tests, hmr, port, hos
     // https://webpack.js.org/plugins/split-chunks-plugin/
     splitChunks: {
       hidePathInfo: true, // prevents the path from being used in the filename when using maxSize
-      chunks: 'initial',
+      chunks: "initial",
       // sizes are compared against source before minification
       maxSize: 200000, // splits chunks if bigger than 200k, adjust as required (maxSize added in webpack v4.15)
       cacheGroups: {
@@ -110,7 +113,8 @@ module.exports = ({production} = {}, {extractCss, analyze, tests, hmr, port, hos
     historyApiFallback: true,
     hot: hmr || project.platform.hmr,
     port: port || project.platform.port,
-    host: host
+    // host: host,
+    disableHostCheck: true,
   },
   devtool: production ? 'nosources-source-map' : 'cheap-module-eval-source-map',
   module: {
